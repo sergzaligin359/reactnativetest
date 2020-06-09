@@ -4,7 +4,7 @@ import { View, StyleSheet, FlatList } from 'react-native'
 import AddTodo from '../components/AddTodo'
 import Todo from '../components/Todo'
 
-export default ({ addTodo, delTodo, todos }) => {
+export default ({ addTodo, delTodo, todos, onOpen }) => {
     
     return (
 
@@ -13,7 +13,7 @@ export default ({ addTodo, delTodo, todos }) => {
             <FlatList
                 keyExtractor={item => item.id}
                 data={todos}
-                renderItem={({item}) => <Todo title={item.title} id={item.id} delTodo={delTodo} />}
+                renderItem={({item}) => <Todo title={item.title} id={item.id} delTodo={delTodo} onOpen={onOpen} />}
             />
         </View>
 

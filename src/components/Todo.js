@@ -1,16 +1,23 @@
 import React from 'react'
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
 
-export default ({id, title, delTodo}) => {
+export default ({id, title, delTodo, onOpen}) => {
 
     const handleLongPress = () => {
-      delTodo(id)
+      delTodo(id, title)
+    }
+
+    const handlePress = () => {
+      onOpen(id)
     }
     
     return (
-      <TouchableOpacity onLongPress={handleLongPress}>
+      <TouchableOpacity 
+        onPress={handlePress}
+        onLongPress={handleLongPress}
+      >
         <View style={styles.todo}>
-          <Text>{title}</Text>
+          <Text>{title} - {id}</Text>
         </View>
       </TouchableOpacity>
 
