@@ -1,6 +1,8 @@
 import React from 'react'
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
 
+import { AppText } from './ui/AppText'
+
 export default ({id, title, delTodo, onOpen}) => {
 
     const handleLongPress = () => {
@@ -17,7 +19,7 @@ export default ({id, title, delTodo, onOpen}) => {
         onLongPress={handleLongPress}
       >
         <View style={styles.todo}>
-          <Text>{title} - {id}</Text>
+          <AppText>{title} - {id}</AppText>
         </View>
       </TouchableOpacity>
 

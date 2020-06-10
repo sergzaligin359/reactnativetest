@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
-import { View, StyleSheet, TextInput, Button, Alert } from 'react-native'
+import { View, StyleSheet, TextInput, Keyboard, Alert } from 'react-native'
+
+import { AntDesign } from '@expo/vector-icons'
 
 export default ({ addTodo }) => {
 
@@ -10,6 +12,7 @@ export default ({ addTodo }) => {
         if(value){
             addTodo(value)
             setValue('')
+            Keyboard.dismiss()
         }else{
             Alert.alert('Название задачи не может быть пустым!!!')
         }
@@ -25,7 +28,7 @@ export default ({ addTodo }) => {
                 placeholder={'Задача...'}
                 autoCorrect={false}
             />
-            <Button title={'Добавить'} onPress={ addTodoHandler  } />
+           <AntDesign.Button onPress={ addTodoHandler } name="plus" size={16} color="black">Добавить</AntDesign.Button>
         </View>
     )
 }
